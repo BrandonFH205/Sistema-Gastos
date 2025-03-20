@@ -1,0 +1,25 @@
+@model IEnumerable<proyectog.Models.Gasto>
+
+<h2>Lista de Gastos</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Descripción</th>
+            <th>Monto</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var gasto in Model)
+        {
+            <tr>
+                <td>@gasto.Descripcion</td>
+                <td>@gasto.Monto.ToString("C")</td>
+                <td>@gasto.Fecha.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Registrar Nuevo Gasto</a>
